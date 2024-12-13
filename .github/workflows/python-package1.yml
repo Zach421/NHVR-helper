@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -36,12 +35,9 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
-      run: 
-       name: Selenium Test
+      run: |
+        pytest
 
-on: [push]
-
-jobs:
   selenium-job:
     runs-on: ubuntu-latest
 
@@ -60,5 +56,5 @@ jobs:
         pip install selenium chromedriver-autoinstaller
 
     - name: Run Selenium script
-      run: python extract_dropdowns.py
-        pytest
+      run: |
+        python extract_dropdowns.py
