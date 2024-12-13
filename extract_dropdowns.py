@@ -1,6 +1,23 @@
+import chromedriver_autoinstaller
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import json
+
+# Automatically install ChromeDriver
+chromedriver_autoinstaller.install()
+
+
+# Setup WebDriver
+driver = webdriver.Chrome()
+
+# URL of the page with the dropdown
+url = "https://example.com"  # Replace with the actual URL
+
+# Open the URL
+driver.get(url)
+
+# Locate the dropdown menu
+dropdown = driver.find_element(By.ID, "dropdown_id")  # Replace with actual ID
 
 # Initialize the WebDriver
 driver = webdriver.Chrome()
