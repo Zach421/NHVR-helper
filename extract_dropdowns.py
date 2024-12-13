@@ -1,11 +1,18 @@
 import chromedriver_autoinstaller
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 import json
 
 # Automatically install ChromeDriver
 chromedriver_autoinstaller.install()
 
+# Setup WebDriver options
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
 
 # Setup WebDriver
 driver = webdriver.Chrome()
